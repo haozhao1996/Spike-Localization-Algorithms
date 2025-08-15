@@ -3,7 +3,7 @@
 This repository contains the analysis scripts and supporting functions used in the study:
 
 > Hao Zhao, Xinhe Zhang, Arnau Marin-Llobet, Xinyi Lin, Jia Liu.  
-> **Benchmarking Spike Source Localization Algorithms in High-Density Probes**. *PLOS Computational Biology*, 2025.  
+> **Benchmarking Spike Source Localization Algorithms in High-Density Probes**  
 
 ## Overview
 The code implements and benchmarks three spike source localization algorithms:

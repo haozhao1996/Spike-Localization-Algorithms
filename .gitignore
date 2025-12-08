@@ -1,4 +1,7 @@
 _Archive/
-output/
-spe1/
-src/
+output/*
+!output/.gitkeep
+spe1/*
+!spe1/.gitkeep
+src/*
+!src/util_eval.py

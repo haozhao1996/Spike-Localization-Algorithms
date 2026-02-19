@@ -93,6 +93,32 @@ def get_unit_loc_est(method, wes):
 
     return unit_loc_est
 
+def get_unit_loc_grid(method, wes, grid_params, days):
+    """
+    For grid search. Only calculate results for D0, D8, D16, and D24 to save time.
+    """
+
+    # Define which days to process
+    target_days = ['D0', 'D8', 'D16', 'D24']    
+    unit_loc_est = []
+    
+    for we_i, we in enumerate(wes):
+        # Check if current day should be processed
+        current_day = days[we_i]
+        
+        if current_day in target_days:
+            # Process this day
+            if method == 'monopolar_triangulation':
+                unit_locs = spost.compute_unit_locations(we, method=method, optimizer='least_square', radius_um=grid_params['radius_um'], max_distance_um=grid_params['max_distance_um'])
+            elif method == 'grid_convolution':
+                unit_locs = spost.compute_unit_locations(we, method=method, radius_um=grid_params['radius_um'], percentile=grid_params['percentile'])
+            else:  # center_of_mass or other methods
+                unit_locs = spost.compute_unit_locations(we, method=method)
+            
+            unit_loc_est.append(unit_locs)
+    
+    return unit_loc_est
+
 def get_loc_est_spikes(method, wes):
     """
     Compute the estimated spike locations for each day

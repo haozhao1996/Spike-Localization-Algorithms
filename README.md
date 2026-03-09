@@ -10,7 +10,7 @@ This repository contains the full pipeline used for our manuscript "Benchmarking
 Spike-Localization-Algorithms/
 │
 ├── SSL_mearec (2026.02.10).ipynb
-├── SSL_mearec (2026.02.10)_AS.ipynb
+├── SSL_mearec (2026.02.10)_AS.ipynbz
 ├── SSL_spe1 (2026.02.10).ipynb
 │
 ├── src/
@@ -27,6 +27,11 @@ Spike-Localization-Algorithms/
 │   ├── 20260210/
 │       └── spe1/
 │   └── 20260210_42/
+│       └── seed_42/
+│       └── seed_43/
+│       └── seed_44/
+│       └── seed_45/
+│       └── seed_46/
 │   └── 20260210_43/
 │   └── .../
 ```
@@ -45,7 +50,7 @@ Two notebooks are required to run the MEArec benchmarking pipeline:
   - Once prior pipeline is run with relevant 'mearec_seed' values, populate those values into list in 'mearec_seeds' parameter. In our manuscript, we run this notebook with 'mearec_seeds' set to [42, 43, 44, 45, 46].
   - This files aggregates the localization results across 'mearec_seed' values to generate the benchmarking results presented in the manuscript.
 
-In the interest of presenting an "end to end" dataset, we provide an intermediate dataset of spike train, spike and template waveform, and localization data (https://drive.google.com/drive/folders/14EXJ_RqWtAA6alYxuq8WDHz6J-U7QLDh?usp=sharing). The MEArec data is saved in `20260210_42`, which represents the intermediate data using mearec_seed=42. We would run the pipeline with the four other mearec_seed values to produce four other intermediate folders (e.g., `20260210_43`, `20260210_44`, etc.), and then run `SSL_mearec (2026.02.10)_AS.ipynb` which aggregates localization results and save figures in `20260210`.  
+In the interest of presenting an "end to end" dataset, we provide an intermediate dataset of spike train, spike and template waveform, and localization data (https://doi.org/10.6084/m9.figshare.31566010). The MEArec data is saved in `20260210_42/seed_42`, which represents the intermediate data using mearec_seed=42 and dead_indices_seed=42. We would run the pipeline with the other mearec_seed and dead_indices_seed values to produce the other intermediate data (see repository structure above), and then run `SSL_mearec (2026.02.10)_AS.ipynb` which aggregates localization results and save figures in `20260210`.  
 
 # 2. Experimental Dataset Pipeline (SPE-1)
 
@@ -55,7 +60,7 @@ One notebook is required to run the SPE-1 benchmarking pipeline:
   - Data must be uploaded into `spe1/data/` folder. Data for each cell is included in separate folder. We recommend downloading using helpful crcnsget tool (https://github.com/neuromusic/crcnsget).  
   - This file performs all degradation simulation, preprocessing, waveform extraction, and template and spike localization. The majority of recording files are deleted to manage folder size, but intermediate results including spike trains, waveform data, and localization results are saved.
 
-In the interest of presenting an "end to end" dataset, we provide an intermediate dataset of spike train, spike and template waveform, and localization data (https://drive.google.com/drive/folders/14EXJ_RqWtAA6alYxuq8WDHz6J-U7QLDh?usp=sharing). The SPE-1 data is saved in `20260210/spe1`.
+In the interest of presenting an "end to end" dataset, we provide an intermediate dataset of spike train, spike and template waveform, and localization data (https://doi.org/10.6084/m9.figshare.31566010). The SPE-1 data is saved in `20260210/spe1`.
 
 # 3. Citation
 
